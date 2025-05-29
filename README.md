@@ -95,7 +95,7 @@
   </main>
 
   <footer>
-    &copy; 2025 小明的个人网站
+    &copy; 2025 XX的个人网站
   </footer>
 </body>
 </html>
