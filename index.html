@@ -26,6 +26,26 @@
 <body>
   <!-- 深色模式按钮 -->
   <button onclick="toggleDarkMode()" class="dark-btn">🌙 深色模式</button>
+<!-- 加入你要显示的地方 -->
+<h2 id="typewriter"></h2>
+
+<!-- JS 脚本打字效果 -->
+<script>
+  const msg = "欢迎来到 luckyle 的博客与作品集！";
+  let i = 0;
+  function typeWriter() {
+    if (i < msg.length) {
+      document.getElementById("typewriter").textContent += msg.charAt(i);
+      i++;
+      setTimeout(typeWriter, 100);
+    }
+  }
+  window.onload = function () {
+    typeWriter();
+    updateTime();
+    setInterval(updateTime, 1000);
+  };
+</script>
 
   <!-- 头部导航 -->
   <header>
