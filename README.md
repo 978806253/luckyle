@@ -76,3 +76,26 @@
     <section id="projects">
       <h2>🎨 作品展示</h2>
       <div class="project">
+        <h3>个人网站</h3>
+        <p>使用 HTML 和 CSS 制作的响应式网站。</p>
+        <a href="#">查看项目</a>
+      </div>
+      <div class="project">
+        <h3>Unity 小游戏</h3>
+        <p>一个使用 Unity 制作的 2D 塔防游戏。</p>
+        <a href="#">查看项目</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>👤 关于我</h2>
+      <p>你好！我是小明，一名学习中的开发者，喜欢前端开发、游戏设计和写博客。欢迎联系我一起交流！</p>
+      <p>📧 邮箱：yourname@example.com</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 小明的个人网站
+  </footer>
+</body>
+</html>
