@@ -3,99 +3,97 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>我的个人博客与作品集</title>
-  <style>
-    body {
-      font-family: "Helvetica Neue", sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      background-color: #f9f9f9;
-      color: #333;
+  <title>我的博客与作品集</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    // 页面加载后更新时间
+    function updateTime() {
+      const now = new Date();
+      document.getElementById("time").textContent = now.toLocaleString();
     }
-    header {
-      background-color: #007acc;
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
+
+    // 深色模式切换
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
     }
-    nav a {
-      color: white;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    main {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      margin-bottom: 3rem;
-    }
-    h2 {
-      color: #007acc;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 0.3rem;
-    }
-    .project {
-      background: white;
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      background: #eee;
-    }
-  </style>
+
+    window.onload = function () {
+      updateTime();
+      setInterval(updateTime, 1000);
+    };
+  </script>
 </head>
 <body>
+  <!-- 深色模式按钮 -->
+  <button onclick="toggleDarkMode()" class="dark-btn">🌙 深色模式</button>
+
+  <!-- 头部导航 -->
   <header>
-    <h1>你好，我是你爹</h1>
-    <p>这是我的个人博客与作品集</p>
-    <nav>
-      <a href="#blog">博客</a>
-      <a href="#projects">作品集</a>
-      <a href="#about">关于我</a>
-    </nav>
+    <div class="container">
+      <h1>luckyle的个人网站</h1>
+      <nav>
+        <a href="#about">关于我</a>
+        <a href="#blog">博客</a>
+        <a href="#projects">作品集</a>
+        <a href="#contact">联系</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section id="blog">
-      <h2>📚 博客文章</h2>
-      <ul>
-        <li><a href="#">如何开始使用 GitHub Pages</a> - 2025-05-30</li>
-        <li><a href="#">我的第一个博客文章</a> - 2025-05-29</li>
-      </ul>
-    </section>
+  <!-- 时间显示 -->
+  <div class="container time-display">当前时间：<span id="time"></span></div>
 
-    <section id="projects">
-      <h2>🎨 作品展示</h2>
-      <div class="project">
-        <h3>个人网站</h3>
-        <p>使用 HTML 和 CSS 制作的响应式网站。</p>
-        <a href="#">查看项目</a>
-      </div>
-      <div class="project">
-        <h3>Unity 小游戏</h3>
-        <p>。</p>
-        <a href="#">查看项目</a>
-      </div>
-    </section>
+  <!-- 关于我 -->
+  <section id="about" class="section">
+    <h2>👋 关于我</h2>
+    <p>你好！我是luckyle，一名前端爱好者，正在学习 HTML、CSS、JavaScript 和 Unity 游戏开发。</p>
+  </section>
 
-    <section id="about">
-      <h2>👤 关于我</h2>
-      <p>你好！我是XX，一名学习中的开发者，喜欢前端开发、游戏设计和写博客。欢迎联系我一起交流！</p>
-      <p>📧 邮箱：978806253@qq.com</p>
-    </section>
-  </main>
+  <!-- 博客 -->
+  <section id="blog" class="section">
+    <h2>📝 博客文章</h2>
+    <ul class="blog-list">
+      <li>
+        <a href="blog1.html"><strong>如何用 GitHub Pages 搭建个人网站</strong></a> - 2025-05-30
+      </li>
+      <li>
+        <a href="blog2.html"><strong>我的游戏制作心得</strong></a> - 2025-05-28
+      </li>
+    </ul>
+  </section>
 
+  <!-- 作品集 -->
+  <section id="projects" class="section">
+    <h2>🚀 我的项目</h2>
+    <div class="project">
+      <h3>个人网站</h3>
+      <p>用纯 HTML/CSS 制作的响应式网站。</p>
+    </div>
+    <div class="project">
+      <h3>Unity游戏</h3>
+      <p>一个使用 Unity 制作的小游戏。</p>
+    </div>
+  </section>
+
+  <!-- 联系方式 -->
+  <section id="contact" class="section">
+    <h2>📬 联系我</h2>
+    <p>邮箱：978806253@qq.com</p>
+    <p>GitHub：<a href="https://github.com/978806253" target="_blank">我的GitHub</a></p>
+  </section>
+
+  <!-- 音乐播放器 -->
+  <section class="section">
+    <h2>🎵 音乐播放器</h2>
+    <audio controls>
+      <source src="audio/ClearMorning.mp3" type="audio/mpeg">
+      您的浏览器不支持音频播放。
+    </audio>
+  </section>
+
+  <!-- 页脚 -->
   <footer>
-    &copy; 2025 XX的个人网站
+    <p>&copy; 2025 luckyle的博客与作品集 | 使用 GitHub Pages 构建</p>
   </footer>
 </body>
 </html>
