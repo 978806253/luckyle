@@ -55,7 +55,7 @@
 </head>
 <body>
   <header>
-    <h1>你好，我是小明</h1>
+    <h1>你好，我是你爹</h1>
     <p>这是我的个人博客与作品集</p>
     <nav>
       <a href="#blog">博客</a>
@@ -82,15 +82,15 @@
       </div>
       <div class="project">
         <h3>Unity 小游戏</h3>
-        <p>一个使用 Unity 制作的 2D 塔防游戏。</p>
+        <p>。</p>
         <a href="#">查看项目</a>
       </div>
     </section>
 
     <section id="about">
       <h2>👤 关于我</h2>
-      <p>你好！我是小明，一名学习中的开发者，喜欢前端开发、游戏设计和写博客。欢迎联系我一起交流！</p>
-      <p>📧 邮箱：yourname@example.com</p>
+      <p>你好！我是XX，一名学习中的开发者，喜欢前端开发、游戏设计和写博客。欢迎联系我一起交流！</p>
+      <p>📧 邮箱：978806253@qq.com</p>
     </section>
   </main>
 
