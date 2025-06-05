@@ -1,192 +1,51 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>我的博客与作品集</title>
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- 自定义光标样式 -->
-  <style>
-    body {
-       cursor: url('https://cdn.jsdelivr.net/gh/978806253/assets@main/cursor/star.cur'), auto;
-    }
-  </style>
-
-  <script>
-    // 更新时间显示函数
-    function updateTime() {
-      const now = new Date();
-      document.getElementById("time").textContent = now.toLocaleString();
-    }
-
-    // 深色模式切换
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
-    }
-
-    // 打字机效果函数
-    const msg = "欢迎来到 luckyle 的博客与作品集！";
-    let i = 0;
-    function typeWriter() {
-      if (i < msg.length) {
-        document.getElementById("typewriter").textContent += msg.charAt(i);
-        i++;
-        setTimeout(typeWriter, 100);
-      }
-    }
-
-    // 页面滚动时触发 fade-in 动画
-    window.addEventListener("scroll", function () {
-      document.querySelectorAll(".fade-in").forEach(function (el) {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-          el.classList.add("visible");
-        }
-      });
-    });
-
-    // 星空背景动画初始化
-    function initStars() {
-      const canvas = document.getElementById("stars");
-      const ctx = canvas.getContext("2d");
-      let stars = [];
-      let w, h;
-
-      function resizeCanvas() {
-        w = canvas.width = window.innerWidth;
-        h = canvas.height = window.innerHeight;
-      }
-      window.addEventListener("resize", resizeCanvas);
-      resizeCanvas();
-
-      for (let i = 0; i < 100; i++) {
-        stars.push({
-          x: Math.random() * w,
-          y: Math.random() * h,
-          r: Math.random() * 1.5 + 0.5,
-          d: Math.random() * 1
-        });
-      }
-
-      function drawStars() {
-        ctx.clearRect(0, 0, w, h);
-        ctx.fillStyle = "white";
-        ctx.shadowBlur = 5;
-        ctx.shadowColor = "white";
-        for (let i = 0; i < stars.length; i++) {
-          const s = stars[i];
-          ctx.beginPath();
-          ctx.arc(s.x, s.y, s.r, 0, 2 * Math.PI);
-          ctx.fill();
-        }
-        moveStars();
-      }
-
-      function moveStars() {
-        for (let i = 0; i < stars.length; i++) {
-          stars[i].y += stars[i].d;
-          if (stars[i].y > h) {
-            stars[i].y = 0;
-            stars[i].x = Math.random() * w;
-          }
-        }
-      }
-
-      function animate() {
-        drawStars();
-        requestAnimationFrame(animate);
-      }
-      animate();
-    }
-
-    // 页面加载完成后初始化
-    window.onload = function () {
-      document.getElementById("loading").style.display = "none";
-      updateTime();
-      typeWriter();
-      initStars();
-      setInterval(updateTime, 1000);
-    };
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>植物大战僵尸</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <!-- 页面加载动画 -->
-  <div id="loading">
-    <div class="spinner"></div>
-  </div>
-
-  <!-- 星空背景 -->
-  <canvas id="stars"></canvas>
-
-  <!-- 深色模式按钮 -->
-  <button onclick="toggleDarkMode()" class="dark-btn">🌙 深色模式</button>
-
-  <!-- 头部导航 -->
-  <header class="fade-in">
-    <div class="container">
-      <h1>luckyle的个人网站</h1>
-      <h2 id="typewriter"></h2>
-      <nav>
-        <a href="#about">关于我</a>
-        <a href="#blog">博客</a>
-        <a href="#projects">作品集</a>
-        <a href="#contact">联系</a>
-      </nav>
+    <div class="game-container">
+        <canvas id="gameCanvas"></canvas>
+        <div class="game-info">
+            <div class="stats">
+                <div class="sun-counter">
+                    <img src="assets/sun.svg" alt="阳光" width="24" height="24">
+                    <span id="sunCount">50</span>
+                </div>
+                <div class="life-counter">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="red">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                    <span id="lifeCount">3</span>
+                </div>
+            </div>
+            <div class="plant-selection">
+                <div class="plant-card" data-plant="sunflower">
+                    <img src="assets/sunflower.svg" alt="向日葵">
+                    <span class="cost">50</span>
+                </div>
+                <div class="plant-card" data-plant="peashooter">
+                    <img src="assets/peashooter.svg" alt="豌豆射手">
+                    <span class="cost">100</span>
+                </div>
+                <div class="plant-card" data-plant="wallnut">
+                    <img src="assets/wallnut.svg" alt="坚果墙">
+                    <span class="cost">50</span>
+                </div>
+                <div class="plant-card" data-plant="snowpea">
+                    <img src="assets/snowpea.svg" alt="寒冰射手">
+                    <span class="cost">175</span>
+                </div>
+                <div class="plant-card" data-plant="chomper">
+                    <img src="assets/chomper.svg" alt="食人花">
+                    <span class="cost">150</span>
+                </div>
+            </div>
+        </div>
     </div>
-  </header>
-
-  <!-- 时间显示 -->
-  <div class="container time-display fade-in">当前时间：<span id="time"></span></div>
-
-  <!-- 关于我 -->
-  <section id="about" class="section fade-in">
-    <h2>👋 关于我</h2>
-    <p>你好！我是luckyle，一名前端爱好者，正在学习 HTML、CSS、JavaScript 和 Unity 游戏开发。</p>
-  </section>
-
-  <!-- 博客 -->
-  <section id="blog" class="section fade-in">
-    <h2>📝 博客文章</h2>
-    <ul class="blog-list">
-      <li><a href="blog/blog1.html"><strong>如何用 GitHub Pages 搭建个人网站</strong></a> - 2025-05-30</li>
-      <li><a href="blog/blog2.html"><strong>我的游戏制作心得</strong></a> - 2025-05-28</li>
-    </ul>
-  </section>
-
-  <!-- 作品集 -->
-  <section id="projects" class="section fade-in">
-    <h2>🚀 我的项目</h2>
-    <div class="project">
-      <h3>个人网站</h3>
-      <p>用纯 HTML/CSS 制作的响应式网站。</p>
-    </div>
-    <div class="project">
-      <h3>Unity游戏</h3>
-      <p>一个使用 Unity 制作的小游戏。</p>
-    </div>
-  </section>
-
-  <!-- 联系方式 -->
-  <section id="contact" class="section fade-in">
-    <h2>📬 联系我</h2>
-    <p>邮箱：978806253@qq.com</p>
-    <p>GitHub：<a href="https://github.com/978806253" target="_blank">我的GitHub</a></p>
-  </section>
-
-  <!-- 音乐播放器 -->
-  <section class="section fade-in">
-    <h2>🎵 音乐播放器</h2>
-    <audio controls>
-      <source src="audio/ClearMorning.mp3" type="audio/mpeg">
-      您的浏览器不支持音频播放。
-    </audio>
-  </section>
-
-  <!-- 页脚 -->
-  <footer class="fade-in">
-    <p>&copy; 2025 luckyle的博客与作品集 | 使用 GitHub Pages 构建</p>
-  </footer>
+    <script src="game.js"></script>
 </body>
-</html>
+</html> 

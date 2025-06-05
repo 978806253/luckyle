@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+    <!-- 植物主体 -->
+    <g fill="#87CEEB">
+        <path d="M20,40 C20,30 30,20 40,20 C50,20 50,30 50,40 C50,50 40,50 40,50 L20,50 Z"/>
+    </g>
+    <!-- 叶子 -->
+    <path d="M15,35 C10,30 10,20 15,15 C20,10 30,10 35,15" fill="#ADD8E6" stroke="#87CEEB" stroke-width="2"/>
+    <path d="M45,35 C50,30 50,20 45,15 C40,10 30,10 25,15" fill="#ADD8E6" stroke="#87CEEB" stroke-width="2"/>
+    <!-- 眼睛 -->
+    <g fill="#000">
+        <circle cx="35" cy="30" r="3"/>
+        <circle cx="45" cy="30" r="3"/>
+    </g>
+    <!-- 嘴巴 -->
+    <path d="M35,35 Q40,40 45,35" stroke="#000" fill="none" stroke-width="2"/>
+    <!-- 冰晶装饰 -->
+    <g fill="#FFFFFF" stroke="#87CEEB" stroke-width="1">
+        <path d="M30,15 L32,18 L35,15 L32,12 Z"/>
+        <path d="M40,25 L42,28 L45,25 L42,22 Z"/>
+    </g>
+</svg> 
